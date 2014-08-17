@@ -40,17 +40,15 @@ names(total.steps.per.day.df) <- c("date", "total.steps")
 counts <- total.steps.per.day.df$total.steps
 names(counts) <- as.character(total.steps.per.day.df$date)
 
-#barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
-png(filename="./figures/histogram_total_steps_w_missing_values.png")
 barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
-dev.off()
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
-```
-## RStudioGD 
-##         2
+```r
+#png(filename="./figures/histogram_total_steps_w_missing_values.png")
+#barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
+#dev.off()
 ```
 
 
@@ -94,18 +92,15 @@ Step 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-ax
 average.steps.per.interval.df <- aggregate(x=activity.df[ ,"steps"], by=list(activity.df$interval), FUN=mean, na.rm=TRUE)
 names(average.steps.per.interval.df) <- c("interval", "average.steps")
 
-#plot(x=average.steps.per.interval.df$interval, y=average.steps.per.interval.df$average.steps, type="l", xlab="5-Minute Interval", ylab="Average Number Steps Taken", main="Average Daily Activity")
-
-png(filename="./figures/plot_average_daily_activity.png")
 plot(x=average.steps.per.interval.df$interval, y=average.steps.per.interval.df$average.steps, type="l", xlab="5-Minute Interval", ylab="Average Number Steps Taken", main="Average Daily Activity")
-dev.off()
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
-```
-## RStudioGD 
-##         2
+```r
+#png(filename="./figures/plot_average_daily_activity.png")
+#plot(x=average.steps.per.interval.df$interval, y=average.steps.per.interval.df$average.steps, type="l", xlab="5-Minute Interval", ylab="Average Number Steps Taken", main="Average Daily Activity")
+#dev.off()
 ```
 
 
@@ -188,17 +183,15 @@ names(total.steps.per.day.df) <- c("date", "total.steps")
 counts <- total.steps.per.day.df$total.steps
 names(counts) <- as.character(total.steps.per.day.df$date)
 
-#barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
-png(filename="./figures/histogram_total_steps_w_imputed_values.png")
 barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
-dev.off()
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
-```
-## RStudioGD 
-##         2
+```r
+#png(filename="./figures/histogram_total_steps_w_imputed_values.png")
+#barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
+#dev.off()
 ```
 
 
@@ -276,17 +269,15 @@ names(mean.steps.per.interval.df) <- c("interval", "type.of.day", "mean.steps")
 
 
 library(lattice)
-#xyplot(mean.steps ~ interval | type.of.day, data=mean.steps.per.interval.df, layout=c(1,2), type="l")
-png(filename="./figures/plot_average_daily_activity_weekend_weekday.png")
 xyplot(mean.steps ~ interval | type.of.day, data=mean.steps.per.interval.df, layout=c(1,2), type="l")
-dev.off()
 ```
 
 ![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
-```
-## RStudioGD 
-##         2
+```r
+#png(filename="./figures/plot_average_daily_activity_weekend_weekday.png")
+#xyplot(mean.steps ~ interval | type.of.day, data=mean.steps.per.interval.df, layout=c(1,2), type="l")
+#dev.off()
 ```
 
 
