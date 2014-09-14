@@ -37,19 +37,10 @@ Step 1. Make a histogram of the total number of steps taken each day
 total.steps.per.day.df <- aggregate(x=activity.df[ ,"steps"], by=list(activity.df$date), FUN=sum, na.rm=TRUE)
 names(total.steps.per.day.df) <- c("date", "total.steps")
 
-counts <- total.steps.per.day.df$total.steps
-names(counts) <- as.character(total.steps.per.day.df$date)
-
-barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
+hist(total.steps.per.day.df$total.steps, main="Histogram of Total Steps per Day", xlab="Total Steps per Day")
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
-
-```r
-#png(filename="./figures/histogram_total_steps_w_missing_values.png")
-#barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
-#dev.off()
-```
 
 
 Step 2. Calculate and report the mean and median total number of steps taken per day
@@ -96,12 +87,6 @@ plot(x=average.steps.per.interval.df$interval, y=average.steps.per.interval.df$a
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
-
-```r
-#png(filename="./figures/plot_average_daily_activity.png")
-#plot(x=average.steps.per.interval.df$interval, y=average.steps.per.interval.df$average.steps, type="l", xlab="5-Minute Interval", ylab="Average Number Steps Taken", main="Average Daily Activity")
-#dev.off()
-```
 
 
 Step 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -180,19 +165,10 @@ Step 4. Make a histogram of the total number of steps taken each day. Calculate 
 total.steps.per.day.df <- aggregate(x=activity.df[ ,"steps"], by=list(activity.df$date), FUN=sum, na.rm=FALSE)
 names(total.steps.per.day.df) <- c("date", "total.steps")
 
-counts <- total.steps.per.day.df$total.steps
-names(counts) <- as.character(total.steps.per.day.df$date)
-
-barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
+hist(total.steps.per.day.df$total.steps, main="Histogram of Total Steps per Day", xlab="Total Steps per Day")
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
-
-```r
-#png(filename="./figures/histogram_total_steps_w_imputed_values.png")
-#barplot(counts, main="Distribution of total steps taken daily", xlab="Date")
-#dev.off()
-```
 
 
 ```r
@@ -273,12 +249,6 @@ xyplot(mean.steps ~ interval | type.of.day, data=mean.steps.per.interval.df, lay
 ```
 
 ![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
-
-```r
-#png(filename="./figures/plot_average_daily_activity_weekend_weekday.png")
-#xyplot(mean.steps ~ interval | type.of.day, data=mean.steps.per.interval.df, layout=c(1,2), type="l")
-#dev.off()
-```
 
 
 
